@@ -1,8 +1,8 @@
 export const FIREBASE_CONFIG = {
-    apiKey: "AIzaSyArNYMs443VWA-TsHYmqVTjcB1PA1ebBjI",
-    authDomain: "tectile-a43b5.firebaseapp.com",
-    databaseURL: "https://tectile-a43b5.firebaseio.com",
-    projectId: "tectile-a43b5",
-    storageBucket: "tectile-a43b5.appspot.com",
-    messagingSenderId: "808747590198"
-  };
+  apiKey: "AIzaSyAn0A-ESWh54RDPJG8wql6ENazv7TlCzEU",
+  authDomain: "tectile-52af0.firebaseapp.com",
+  databaseURL: "https://tectile-52af0.firebaseio.com",
+  projectId: "tectile-52af0",
+  storageBucket: "",
+  messagingSenderId: "24467769737"
+};
