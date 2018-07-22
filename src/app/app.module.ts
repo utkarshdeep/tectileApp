@@ -19,6 +19,7 @@ import { FIREBASE_CONFIG } from './app.firebase.config';
 import { AssignmentPage } from '../pages/assignment/assignment';
 
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AuthProvider } from '../providers/auth/auth';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthProvider
   ]
 })
 export class AppModule {}

@@ -3,13 +3,7 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 import { User } from '../../models/user';
 import { HomePage } from '../home/home';
 import { AngularFireAuth } from 'angularfire2/auth';
-
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { AuthProvider } from '../../providers/auth/auth';
 
 @IonicPage()
 @Component({
@@ -19,7 +13,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 export class LoginPage {
 
   user = {} as User;
-  constructor(public angularFireAuth: AngularFireAuth,public navCtrl: NavController, public navParams: NavParams, private toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController,private toastCtrl: ToastController, private authProvider: AuthProvider) {
   }
 
   ionViewDidLoad() {
@@ -40,14 +34,7 @@ export class LoginPage {
     toast.present();
   }
 
-  async login(user: User){
-    try{
-      const result = await this.angularFireAuth.auth.signInWithEmailAndPassword(user.email, user.password);
-      this.navCtrl.push(HomePage);
-    }
-    catch(e){
-      this.presentToast(e.message);
-    }
-   
+  login(user: User){
+   this.authProvider.loginUser(user);
   }
 }
