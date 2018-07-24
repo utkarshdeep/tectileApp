@@ -1,0 +1,187 @@
+<!--
+  Generated template for the AssignmentPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Create Assignment</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>    
+  <div>
+    <ion-segment [(ngModel)]="job">
+      <ion-segment-button value="master">
+        Master
+      </ion-segment-button>
+      <ion-segment-button value="issue">
+        Issue
+      </ion-segment-button>
+      <ion-segment-button value="received">
+        Received
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  
+  <div [ngSwitch]="job">
+    <form [formGroup]="masterForm" (ngSubmit)="createMasterAssignment()">
+        <ion-list *ngSwitchCase="'master'">  
+            <ion-item>
+              <ion-label>Fabric Type</ion-label>
+              <ion-select formControlName="fabric">
+                <ion-option value="nes">NES</ion-option>
+                <ion-option value="n64">Nintendo64</ion-option>
+                <ion-option value="ps">PlayStation</ion-option>
+                <ion-option value="genesis">Sega Genesis</ion-option>
+                <ion-option value="saturn">Sega Saturn</ion-option>
+                <ion-option value="snes">SNES</ion-option>
+              </ion-select>
+            </ion-item>
+      
+            <ion-item>
+              <ion-label stacked>Master Name</ion-label>
+              <ion-select formControlName="masterName">
+                <ion-option value="nes">NES</ion-option>
+                <ion-option value="n64">Nintendo64</ion-option>
+                <ion-option value="ps">PlayStation</ion-option>
+                <ion-option value="genesis">Sega Genesis</ion-option>
+                <ion-option value="saturn">Sega Saturn</ion-option>
+                <ion-option value="snes">SNES</ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label stacked>Date</ion-label>
+              <ion-datetime displayFormat="YYYY-MM-DD" min="2016" max="2020-10-31" formControlName="date"></ion-datetime>
+            </ion-item>
+      
+            <ion-item>
+              <ion-label stacked>Design</ion-label>
+              <ion-select formControlName="design">
+                <ion-option value="nes">NES</ion-option>
+                <ion-option value="n64">Nintendo64</ion-option>
+                <ion-option value="ps">PlayStation</ion-option>
+                <ion-option value="genesis">Sega Genesis</ion-option>
+                <ion-option value="saturn">Sega Saturn</ion-option>
+                <ion-option value="snes">SNES</ion-option>
+              </ion-select>
+            </ion-item>
+      
+            <ion-item>
+              <ion-label floating>Lot No.</ion-label>
+              <ion-input type="text" formControlName = "lotNo"></ion-input>
+            </ion-item>
+      
+            <ion-item>
+              <ion-label floating>Size</ion-label>
+              <ion-input formControlName="size" type="number" formControlName= "size"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label floating>Set</ion-label>
+              <ion-input type="text" formControlName = "set"></ion-input>
+            </ion-item>
+      
+            <br><br\>
+            <button ion-button color="light" round >Check Status</button>
+            <button ion-button round >Add Assignment</button>
+          </ion-list>
+    </form>
+  
+    <ion-list *ngSwitchCase="'issue'">
+      <ion-item>
+        <ion-label>Job Worker</ion-label>
+        <ion-select [(ngModel)]="worker">
+          <ion-option value="nes">NES</ion-option>
+          <ion-option value="n64">Nintendo64</ion-option>
+          <ion-option value="ps">PlayStation</ion-option>
+          <ion-option value="genesis">Sega Genesis</ion-option>
+          <ion-option value="saturn">Sega Saturn</ion-option>
+          <ion-option value="snes">SNES</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Item</ion-label>
+        <ion-select [(ngModel)]="item">
+          <ion-option value="nes">NES</ion-option>
+          <ion-option value="n64">Nintendo64</ion-option>
+          <ion-option value="ps">PlayStation</ion-option>
+          <ion-option value="genesis">Sega Genesis</ion-option>
+          <ion-option value="saturn">Sega Saturn</ion-option>
+          <ion-option value="snes">SNES</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Date</ion-label>
+        <ion-datetime displayFormat="YYYY-MM-DD" min="2016" max="2020-10-31" [(ngModel)]="issueDate"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Set</ion-label>
+        <ion-select [(ngModel)]="set">
+          <ion-option value="nes">NES</ion-option>
+          <ion-option value="n64">Nintendo64</ion-option>
+          <ion-option value="ps">PlayStation</ion-option>
+          <ion-option value="genesis">Sega Genesis</ion-option>
+          <ion-option value="saturn">Sega Saturn</ion-option>
+          <ion-option value="snes">SNES</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <br><br\>
+      <button ion-button color="light" round (click)="checkStatus()">Check Status</button>
+      <button ion-button round>Add Assignment</button>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'received'">
+      <ion-item>
+        <ion-label>Job Worker</ion-label>
+        <ion-select [(ngModel)]="workerRec">
+          <ion-option value="nes">NES</ion-option>
+          <ion-option value="n64">Nintendo64</ion-option>
+          <ion-option value="ps">PlayStation</ion-option>
+          <ion-option value="genesis">Sega Genesis</ion-option>
+          <ion-option value="saturn">Sega Saturn</ion-option>
+          <ion-option value="snes">SNES</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Item</ion-label>
+        <ion-select [(ngModel)]="itemRec">
+          <ion-option value="nes">NES</ion-option>
+          <ion-option value="n64">Nintendo64</ion-option>
+          <ion-option value="ps">PlayStation</ion-option>
+          <ion-option value="genesis">Sega Genesis</ion-option>
+          <ion-option value="saturn">Sega Saturn</ion-option>
+          <ion-option value="snes">SNES</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Date</ion-label>
+        <ion-datetime displayFormat="YYYY-MM-DD" min="2016" max="2020-10-31" [(ngModel)]="recDate"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>set</ion-label>
+        <ion-select [(ngModel)]="recSet">
+          <ion-option value="nes">NES</ion-option>
+          <ion-option value="n64">Nintendo64</ion-option>
+          <ion-option value="ps">PlayStation</ion-option>
+          <ion-option value="genesis">Sega Genesis</ion-option>
+          <ion-option value="saturn">Sega Saturn</ion-option>
+          <ion-option value="snes">SNES</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <br><br\>
+      <button ion-button color="light" round (click)="checkStatus()">Check Status</button>
+      <button ion-button round>Add Assignment</button>
+    </ion-list>
+  </div>
+  
+</ion-content>
