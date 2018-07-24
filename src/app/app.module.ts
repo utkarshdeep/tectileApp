@@ -20,6 +20,12 @@ import { AssignmentPage } from '../pages/assignment/assignment';
 
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AuthProvider } from '../providers/auth/auth';
+import { AdminHomePage } from '../pages/admin-home/admin-home';
+import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
+import { NotificationPage } from '../pages/notification/notification';
+import { SearchPage } from '../pages/search/search';
+import { ProfilePage } from '../pages/profile/profile';
+import { AngularFirestore, AngularFirestoreModule } from 'angularfire2/firestore';
 
 @NgModule({
   declarations: [
@@ -31,7 +37,12 @@ import { AuthProvider } from '../providers/auth/auth';
     ContactPage,
     HomePage,
     TabsPage,
-    AssignmentPage
+    AssignmentPage,
+    AdminHomePage,
+    AdminDashboardPage,
+    NotificationPage,
+    SearchPage,
+    ProfilePage,
     
   ],
   imports: [
@@ -39,7 +50,8 @@ import { AuthProvider } from '../providers/auth/auth';
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFirestoreModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -51,7 +63,12 @@ import { AuthProvider } from '../providers/auth/auth';
     ContactPage,
     HomePage,
     TabsPage,
-    AssignmentPage
+    AssignmentPage,
+    AdminHomePage,
+    AdminDashboardPage,
+    NotificationPage,
+    SearchPage,
+    ProfilePage,
   ],
   providers: [
     StatusBar,

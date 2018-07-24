@@ -1,12 +1,21 @@
 export interface Roles{
-    admin: boolean;
+    admin?: boolean;
     master?: boolean;
-    jobworker?: boolean;
+    jobworker: boolean;
 }
 
 
-export interface User{
+export class User{
+    uid: string;
     email: string;
     password: string;
     roles: Roles;
+
+
+    constructor(authData) {
+        this.uid = authData.uid
+        this.email    = authData.email
+        this.password = authData.password
+        this.roles    = { jobworker: true }
+      }
 }

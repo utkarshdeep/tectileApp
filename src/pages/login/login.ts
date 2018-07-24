@@ -4,6 +4,7 @@ import { User } from '../../models/user';
 import { HomePage } from '../home/home';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AuthProvider } from '../../providers/auth/auth';
+import { AdminHomePage } from '../admin-home/admin-home';
 
 @IonicPage()
 @Component({
@@ -12,7 +13,7 @@ import { AuthProvider } from '../../providers/auth/auth';
 })
 export class LoginPage {
 
-  user = {} as User;
+  user = {email: 'admin@tectile.com',password: 'tectil@123'} as User;
   constructor(public navCtrl: NavController,private toastCtrl: ToastController, private authProvider: AuthProvider) {
   }
 
@@ -36,5 +37,6 @@ export class LoginPage {
 
   login(user: User){
    this.authProvider.loginUser(user);
+   this.navCtrl.push(AdminHomePage);
   }
 }
