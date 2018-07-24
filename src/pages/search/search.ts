@@ -15,11 +15,33 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SearchPage {
 
+  items = [];
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.initializeItems();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchPage');
+  }
+
+  initializeItems() {
+    this.items = ['Utkarsh', 'Tectile', 'Abhay', 'Jisaan', 'Work', 'Master']
+  }
+
+  getItems(event){
+    console.log(event);
+
+    this.initializeItems();
+
+    const val = event.target.value;
+
+    // if the value is an empty string don't filter the items
+    if (val && val.trim() != '') {
+      this.items = this.items.filter((item) => {
+        return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      })
+    }
   }
 
 }

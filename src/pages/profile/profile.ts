@@ -18,7 +18,12 @@ export class ProfilePage {
 
   user: User = {} as User;
 
+  profile ;
+  pet ;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    //this.profile = 'personaldetail';
+    this.pet = "personaldetails";
   }
 
   ionViewDidLoad() {
@@ -26,3 +31,4 @@ export class ProfilePage {
   }
 
 }
+
