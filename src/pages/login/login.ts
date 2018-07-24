@@ -37,6 +37,6 @@ export class LoginPage {
 
   login(user: User){
    this.authProvider.loginUser(user);
-   this.navCtrl.push(AdminHomePage);
+   this.navCtrl.push(HomePage);
   }
 }

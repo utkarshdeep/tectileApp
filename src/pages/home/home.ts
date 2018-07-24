@@ -6,6 +6,7 @@ import { AdminHomePage } from '../admin-home/admin-home';
 import { ContactPage } from '../contact/contact';
 import { AdminHomePageModule } from '../admin-home/admin-home.module';
 import { ProfilePage } from '../profile/profile';
+import { SearchPage } from '../search/search';
 
 
 @Component({
@@ -25,7 +26,7 @@ export class HomePage {
 
   ionViewWillEnter(){
 
-    const val = false;
+    const val = true;
 
     if(val){
       this.pages = [
@@ -33,12 +34,12 @@ export class HomePage {
           title:'Admin Home', page:AdminHomePage
         }
       ];
-      this.openPage(ProfilePage); 
+      this.openPage(AdminHomePage); 
     } else {
 
       this.pages = [
         {
-          title:'Admin Home', page:ContactPage
+          title:'Admin Home', page:SearchPage
         }
       ];
       this.openPage(ContactPage);
@@ -47,7 +48,7 @@ export class HomePage {
   }
 
   openPage(page){
-    this.nav.setRoot(page);
+    this.navCtrl.setRoot(page);
   }
 
   ionViewCanEnter(){
