@@ -26,7 +26,6 @@ import { NotificationPage } from '../pages/notification/notification';
 import { SearchPage } from '../pages/search/search';
 import { ProfilePage } from '../pages/profile/profile';
 import { AngularFirestore, AngularFirestoreModule } from 'angularfire2/firestore';
-import { CalendarModule } from 'ionic3-calendar';
 
 @NgModule({
   declarations: [
@@ -53,7 +52,6 @@ import { CalendarModule } from 'ionic3-calendar';
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     AngularFirestoreModule,
-    CalendarModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
